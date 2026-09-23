@@ -1,5 +1,5 @@
 ---
-
+const pageTitle = 'Un blog bien feo'
 ---
 
 <html lang="en">
@@ -9,7 +9,7 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
@@ -18,7 +18,12 @@
         <br>
         <a href="/blog/">Blog</a>
 
-		<h1>Mi sitio astro</h1>
+		<h1>{pageTitle}</h1>
         <p>Aqui publicare pura cosa chida.</p>
+    <ul>
+      <li><a href="/posts/post-1/">Post 1</a></li>
+            <li><a href="/posts/post-2/">Post 2</a></li>
+      <li><a href="/posts/post-3/">Post 3</a></li>
+    </ul>
 	</body>
 </html>

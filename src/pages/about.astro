@@ -1,5 +1,14 @@
 ---
+const pageTitle = 'Sobre mi';
 
+const identity = {
+    firstName: "Erick",
+    country: "Mexico",
+    occupation: "Gastarme todos los tokens de claude",
+    hobbies: ["Piano","Leer","Ajedrez"],
+}
+
+const skills = ["Java","JavaScript","React","HTML","CSS"]
 ---
 
 <html lang="en">
@@ -9,7 +18,7 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
@@ -17,9 +26,19 @@
         <a href="/about/">About</a>
         <br>
         <a href="/blog/">Blog</a>
-
-		<h1>Sobre mi</h1>
+    <ul>
+      <li><a href="/posts/post-1/">Post 1</a></li>
+            <li><a href="/posts/post-2/">Post 2</a></li>
+      <li><a href="/posts/post-3/">Post 3</a></li>
+    </ul>
+		<h1>{pageTitle}</h1>
         <p>Desarrollador de Software que no sabe nada de Sofware. Experto en copiar y pegar codigo que le da la IA</p>
         <p>Este sitio, es una joyita.</p>
+        
+        <p>Algunos datos sobre mi</p>
+        <ul>
+            <li>Mi nombre es {identity.firstName}</li>
+            <li></li>
+        </ul>
 	</body>
 </html>
