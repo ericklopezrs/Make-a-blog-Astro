@@ -1,5 +1,8 @@
 ---
-const pageTitle = 'Sobre mi';
+import '../styles/global.css'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const pageTitle = "Sobre mi"
 
 const identity = {
     firstName: "Erick",
@@ -9,36 +12,50 @@ const identity = {
 }
 
 const skills = ["Java","JavaScript","React","HTML","CSS"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <br>
-        <a href="/about/">About</a>
-        <br>
-        <a href="/blog/">Blog</a>
-    <ul>
-      <li><a href="/posts/post-1/">Post 1</a></li>
-            <li><a href="/posts/post-2/">Post 2</a></li>
-      <li><a href="/posts/post-3/">Post 3</a></li>
-    </ul>
-		<h1>{pageTitle}</h1>
-        <p>Desarrollador de Software que no sabe nada de Sofware. Experto en copiar y pegar codigo que le da la IA</p>
+<BaseLayout pageTitle = {pageTitle}>
+
+<p>Desarrollador de Software que no sabe nada de Sofware. Experto en copiar y pegar codigo que le da la IA</p>
         <p>Este sitio, es una joyita.</p>
         
         <p>Algunos datos sobre mi</p>
         <ul>
             <li>Mi nombre es {identity.firstName}</li>
-            <li></li>
+            <li>Vivo en  {identity.country} y uno de mis trabajos es {identity.occupation}</li>
+            {identity.hobbies.length >= 2 &&
+        <li>Dos de mis hobbies son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+         }
         </ul>
-	</body>
-</html>
+        <p>Mis habilidades son:</p>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+
+        {happy && <p>Estoy feliz de aprender Astro!</p>}
+
+{finished && <p>Ya acabe este tutorial!</p>}
+
+{goal === 3 ? <p>Mi meta es acabarlo en 3 dias.</p> : <p>Mi meta no son 3 dias.</p>}
+
+
+<style is:global define:vars={{ skillColor, fontWeight, textCase }}>
+        h1 {
+            color: purple;
+            font-size: 4rem;
+        }
+        .skill{
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+        }
+</style>
+</BaseLayout>
